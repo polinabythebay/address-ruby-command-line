@@ -12,7 +12,7 @@ RSpec.describe AddressBook do
 
     it "should initialize entries as empty" do
       book = AddressBook.new
-      expect(book.entries.size).eql? 0
+      expect(book.entries.size).to eql 0
     end
   end
 
@@ -21,10 +21,10 @@ RSpec.describe AddressBook do
       book = AddressBook.new
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
       new_entry = book.entries[0]
-      expect(book.entries.size).eql? 1
-      expect(new_entry.name).eql? 'Ada Lovelace'
-      expect(new_entry.phone_number).eql? '010.012.1815'
-      expect(new_entry.email).eql? 'augusta.king@lovelace.com'
+      expect(book.entries.size).to eql 1
+      expect(new_entry.name).to eql 'Ada Lovelace'
+      expect(new_entry.phone_number).to eql '010.012.1815'
+      expect(new_entry.email).to eql 'augusta.king@lovelace.com'
     end
   end
 
@@ -34,7 +34,7 @@ RSpec.describe AddressBook do
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
       new_entry = book.entries[0]
       book.remove_entry(new_entry)
-      expect(book.entries.size).eql? 0
+      expect(book.entries.size).to eql 0
     end
   end
 end
