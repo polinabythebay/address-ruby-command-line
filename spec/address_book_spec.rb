@@ -120,4 +120,53 @@ RSpec.describe AddressBook do
       expect(entry).to be_nil
     end
   end
+
+  context ".iterative_search" do
+    it "searches AddressBook for a non-existent entry iteratively" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Dan")
+      expect(entry).to be_nil
+    end
+
+    it "searches AddressBook for Bill iteratively" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Bill")
+      expect entry.instance_of?(Entry)
+      check_entry(entry, "Bill", "555-555-5555", "bill@blocmail.com")
+    end
+
+    it "searches AddressBook for Bob iteratively" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Bob")
+      expect entry.instance_of?(Entry)
+      check_entry(entry, "Bob", "555-555-5555", "bob@blocmail.com")
+    end 
+ 
+    it "searches AddressBook for Joe iteratively" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Joe")
+      expect entry.instance_of?(Entry)
+      check_entry(entry, "Joe", "555-555-5555", "joe@blocmail.com")
+    end 
+ 
+    it "searches AddressBook for Sally iteratively" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Sally")
+      expect entry.instance_of?(Entry)
+      check_entry(entry, "Sally", "555-555-5555", "sally@blocmail.com")
+    end 
+ 
+    it "searches AddressBook for Sussie iteratively" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Sussie")
+      expect entry.instance_of?(Entry)
+      check_entry(entry, "Sussie", "555-555-5555", "sussie@blocmail.com")
+    end
+
+    it "searches AddressBook for Billy iteratively" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Billy")
+      expect(entry).to be_nil
+    end
+  end
 end
